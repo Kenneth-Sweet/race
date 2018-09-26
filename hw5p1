@@ -1,0 +1,70 @@
+import java.util.Arrays;;
+
+public class Sweet_Kenneth_HW5P1 {
+
+    public static void main(String[] args) {
+
+        int billFrankCount = 0;
+        int billAliceCount = 0;
+        int aliceFrankCount = 0;
+
+        String[][] billInfo = {
+            {"Alice", "Frank", "Jim", "Malice", "Kenny"},
+            {"Bill Smith 0"}
+        };
+        String[][] frankInfo = {
+            {"Bill","Jack", "Malice"},
+            {"Frank Farmer 1"}
+        };
+        String[][] aliceInfo = {
+            {"Bill","Jack", "Jim", "Malice"},
+            {"Alice Jones 2"}
+        }; 
+
+        String billFrankMutuals = "";
+        String billAliceMutuals = "";
+        String aliceFrankMutuals = "";
+
+        Arrays.sort(billInfo);
+        Arrays.sort(aliceInfo);
+        Arrays.sort(frankInfo); 
+
+        for(int i = 0; i < billInfo.length; i++){
+            for(int j = 0; j < frankInfo.length; j++){
+                if(billInfo[i][j] == frankInfo[i][j]){
+                    billFrankCount++;
+                    billFrankMutuals += billInfo[i][j] + " ";
+                }
+                
+            }
+        }
+        for(int k = 0; k < billInfo.length; k++){
+            for(int l = 0; l < aliceInfo.length; l++){
+                if(billInfo[k][l] == aliceInfo[k][l]){
+                    billAliceCount++;
+                    billAliceMutuals += billInfo[k][l]  +  " ";
+                }
+                
+            }
+        }
+        for(int m = 0; m < aliceInfo.length; m++){
+            for(int n = 0; n < frankInfo.length; n++){
+                if(aliceInfo[m][n] == frankInfo[m][n]){
+                    aliceFrankCount++;
+                    aliceFrankMutuals += aliceInfo[m][n] + " ";
+                }
+                
+            }
+        }
+
+        System.out.print("Bill's account info and friendlist " + billInfo);
+        System.out.print("Frank's account info and friendlist " + frankInfo);
+        System.out.print("Alice's account info and friendlist " + aliceInfo);
+
+        System.out.print("common friends and count: Bill/Frank: " + billFrankMutuals + " " + billFrankCount); 
+        System.out.print("common friends and count: Alice/Frank: " + aliceFrankMutuals + " " + aliceFrankCount); 
+        System.out.print("common friends and count: Bill/Alice: " + billAliceMutuals + " " + billAliceCount); 
+
+    }
+
+}
